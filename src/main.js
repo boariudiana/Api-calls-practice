@@ -49,17 +49,17 @@ function showFox(){
 }
 function choosenOption(){
     if(document.querySelector("#pets").value === "cat"){
-        document.querySelector("#show-cat").style.display = "block";
+        document.querySelector("#show-cat").style.display = "inline";
         document.querySelector("#show-dog").style.display = "none";
         document.querySelector("#show-fox").style.display = "none"
     }else if(document.querySelector("#pets").value === "dog"){
         document.querySelector("#show-cat").style.display = "none";
-        document.querySelector("#show-dog").style.display = "block";
+        document.querySelector("#show-dog").style.display = "inline";
         document.querySelector("#show-fox").style.display = "none";
     }else if(document.querySelector("#pets").value === "fox"){
         document.querySelector("#show-cat").style.display = "none";
         document.querySelector("#show-dog").style.display = "none";
-        document.querySelector("#show-fox").style.display = "block";
+        document.querySelector("#show-fox").style.display = "inline";
     }else{
         document.querySelector("#show-cat").style.display = "none";
         document.querySelector("#show-dog").style.display = "none";
