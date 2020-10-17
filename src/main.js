@@ -1,4 +1,4 @@
-var DOG_API = "https://random.dog/woof.json";
+const DOG_API = "https://random.dog/woof.json";
 
 function showDog() {
     fetch(DOG_API)
@@ -16,7 +16,7 @@ function showDog() {
   }
 
 
-var CAT_API= "https://aws.random.cat/meow";
+const CAT_API= "https://aws.random.cat/meow";
 function showCat (){
     fetch(CAT_API)
       .then(function (response) {
@@ -32,7 +32,7 @@ function showCat (){
       });
 }
 
-var FOX_API = "https://randomfox.ca/floof/";
+const FOX_API = "https://randomfox.ca/floof/";
 function showFox(){
     fetch(FOX_API)
       .then(function (response) {
@@ -47,29 +47,23 @@ function showFox(){
           console.log("there was an error:", error);
       });
 }
-function choosenOption(){
-    if(document.querySelector("#pets").value === "cat"){
-        document.querySelector("#show-cat").style.display = "inline";
-        document.querySelector("#show-dog").style.display = "none";
-        document.querySelector("#show-fox").style.display = "none"
-    }else if(document.querySelector("#pets").value === "dog"){
-        document.querySelector("#show-cat").style.display = "none";
-        document.querySelector("#show-dog").style.display = "inline";
-        document.querySelector("#show-fox").style.display = "none";
-    }else if(document.querySelector("#pets").value === "fox"){
-        document.querySelector("#show-cat").style.display = "none";
-        document.querySelector("#show-dog").style.display = "none";
-        document.querySelector("#show-fox").style.display = "inline";
-    }else{
-        document.querySelector("#show-cat").style.display = "none";
-        document.querySelector("#show-dog").style.display = "none";
-        document.querySelector("#show-fox").style.display = "none";
-    }
 
+const onChangedOption = () =>{
+  const inputValue = document.querySelector("#pets").value;
+  if ( inputValue === "cat"){
+    document.querySelector("#show-pet").removeEventListener("click", showDog);
+    document.querySelector("#show-pet").removeEventListener("click", showFox);
+    document.querySelector("#show-pet").addEventListener("click", showCat);
+  }else if(inputValue === "dog"){
+    document.querySelector("#show-pet").removeEventListener("click", showFox);
+    document.querySelector("#show-pet").removeEventListener("click", showCat);
+    document.querySelector("#show-pet").addEventListener("click", showDog);
+  }else if(inputValue === "fox"){
+    document.querySelector("#show-pet").removeEventListener("click", showDog);
+    document.querySelector("#show-pet").removeEventListener("click", showCat);
+    document.querySelector("#show-pet").addEventListener("click", showFox);
+  }
 }
 
-document.querySelector("#show-dog").addEventListener("click", showDog);
-document.querySelector("#show-cat").addEventListener("click", showCat);
-document.querySelector("#show-fox").addEventListener("click", showFox);
 
 
